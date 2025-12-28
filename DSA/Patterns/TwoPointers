@@ -1,0 +1,31 @@
+import java.util.Arrays;
+public class Main
+{
+	public static void main(String[] args) {
+	    int[] nums = {2, 2, 2,5, 5, 5, 6, 6, 7,8};
+		System.out.println("result : "+removeDups(nums));
+	}
+
+  // removing duplicates from array using slow and fast pointer
+    public static int removeDups(int[] nums) {
+        
+        if(nums.length == 0)return 0;
+        int slow = 0; // slow pointer
+        
+        for(int fast = 1 ; fast<nums.length ; fast++){
+            
+            if(nums[slow] != nums[fast]){
+                slow++;
+                nums[slow] = nums[fast];
+            }
+        }
+        
+        // prints non-dups
+        for (int i = 0; i<slow + 1 ;i++ )    
+        System.out.println(nums[i]);
+        
+        return slow + 1; // returns length of the non-dup array
+        
+    }
+
+}
